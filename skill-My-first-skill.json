@@ -1,0 +1,710 @@
+{
+  "intents": [
+    {
+      "intent": "أسئلة_شخصية",
+      "examples": [
+        {
+          "text": "أخبارك"
+        },
+        {
+          "text": "عمرك"
+        },
+        {
+          "text": "كيف الحال"
+        },
+        {
+          "text": "كيفك"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "أضحية",
+      "examples": [
+        {
+          "text": "أضحية"
+        },
+        {
+          "text": "خروف"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "ترحيب",
+      "examples": [
+        {
+          "text": "أهلا"
+        },
+        {
+          "text": "السلام عليكم"
+        },
+        {
+          "text": "مرحبا"
+        },
+        {
+          "text": "هلا"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "تنظيف",
+      "examples": [
+        {
+          "text": "تنظيف"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "خدمات_العيد",
+      "examples": [
+        {
+          "text": "خدمات"
+        },
+        {
+          "text": "خدماتك"
+        },
+        {
+          "text": "خدماتي"
+        },
+        {
+          "text": "خدمة"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "صرف",
+      "examples": [
+        {
+          "text": "صرف"
+        },
+        {
+          "text": "عيدية"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "عبارات_العيد",
+      "examples": [
+        {
+          "text": "عساك من عواده"
+        },
+        {
+          "text": "عيدك مبارك"
+        },
+        {
+          "text": "كل عام وانت بخير"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "ملابس",
+      "examples": [
+        {
+          "text": "ثياب"
+        },
+        {
+          "text": "فستان"
+        },
+        {
+          "text": "ملابس"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "sys-date",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-number",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-time",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "فئة",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "خمسة",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "ريال",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "عشرة",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "عشرين",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "التاريخ؟"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_3_1626490888369",
+      "event_name": "focus",
+      "dialog_node": "handler_10_1626490888381",
+      "previous_sibling": "handler_3_1626490888381"
+    },
+    {
+      "type": "event_handler",
+      "parent": "node_3_1626490860587",
+      "event_name": "focus",
+      "dialog_node": "handler_1_1626491169669"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_8_1626491815956",
+      "context": {
+        "number": "@sys-number"
+      },
+      "conditions": "@sys-number",
+      "event_name": "input",
+      "dialog_node": "handler_1_1626491815957"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1626491187379",
+      "event_name": "focus",
+      "dialog_node": "handler_2_1626491617137"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_3_1626490888369",
+      "context": {
+        "date": "@sys-date"
+      },
+      "conditions": "@sys-date",
+      "event_name": "input",
+      "dialog_node": "handler_3_1626490888381"
+    },
+    {
+      "type": "event_handler",
+      "parent": "node_4_1626491673224",
+      "event_name": "focus",
+      "dialog_node": "handler_3_1626491712165"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_1_1626492656182",
+      "context": {
+        "type": "@فئة"
+      },
+      "conditions": "@فئة",
+      "event_name": "input",
+      "dialog_node": "handler_3_1626492656184"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_7_1626490294709",
+      "event_name": "focus",
+      "dialog_node": "handler_5_1626490294723",
+      "previous_sibling": "handler_7_1626490294723"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_1_1626490942549",
+      "context": {
+        "time": "@sys-time"
+      },
+      "conditions": "@sys-time",
+      "event_name": "input",
+      "dialog_node": "handler_5_1626490942550"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "الكمية"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_8_1626491240645",
+      "event_name": "focus",
+      "dialog_node": "handler_5_1626491240657",
+      "previous_sibling": "handler_7_1626491240657"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "العمر"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_8_1626491815956",
+      "event_name": "focus",
+      "dialog_node": "handler_5_1626491815957",
+      "previous_sibling": "handler_1_1626491815957"
+    },
+    {
+      "type": "event_handler",
+      "parent": "slot_7_1626490294709",
+      "event_name": "input",
+      "dialog_node": "handler_7_1626490294723"
+    },
+    {
+      "type": "event_handler",
+      "parent": "slot_3_1626490320711",
+      "event_name": "input",
+      "dialog_node": "handler_7_1626490320725"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "الوقت؟"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_1_1626490942549",
+      "event_name": "focus",
+      "dialog_node": "handler_7_1626490942550",
+      "previous_sibling": "handler_5_1626490942550"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_8_1626491240645",
+      "context": {
+        "number": "@sys-number"
+      },
+      "conditions": "@sys-number",
+      "event_name": "input",
+      "dialog_node": "handler_7_1626491240657"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_3_1626490320711",
+      "event_name": "focus",
+      "dialog_node": "handler_8_1626490320725",
+      "previous_sibling": "handler_7_1626490320725"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "فئة الصرف"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_1_1626492656182",
+      "event_name": "focus",
+      "dialog_node": "handler_8_1626492656184",
+      "previous_sibling": "handler_3_1626492656184"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "title": "خدمات العيد",
+            "options": [
+              {
+                "label": "أضحية العيد",
+                "value": {
+                  "input": {
+                    "text": "أضحية"
+                  }
+                }
+              },
+              {
+                "label": "صرف العيدية",
+                "value": {
+                  "input": {
+                    "text": "صرف"
+                  }
+                }
+              },
+              {
+                "label": "ملابس العيد",
+                "value": {
+                  "input": {
+                    "text": "ملابس"
+                  }
+                }
+              },
+              {
+                "label": "تنظيف المنزل",
+                "value": {
+                  "input": {
+                    "text": "تنظيف"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "conditions": "#خدمات_العيد",
+      "dialog_node": "node_1_1626488937021",
+      "previous_sibling": "node_3_1626488710220"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "تم تسجيل الطلب."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_1_1626488937021"
+      },
+      "conditions": "#أضحية",
+      "dialog_node": "node_1_1626490637578",
+      "previous_sibling": "node_1_1626488937021"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": "ياهلا فيك, اكتب خدمات لعرض خدماتي المتوفرة"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "title": "خدماتي المتوفرة",
+            "options": [
+              {
+                "label": "خدمات العيد",
+                "value": {
+                  "input": {
+                    "text": "خدماتي"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          },
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#ترحيب",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_3_1626488326740",
+      "previous_sibling": "node_4_1626491673224"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "عيدك مبارك"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#عبارات_العيد",
+      "dialog_node": "node_3_1626488710220",
+      "previous_sibling": "node_4_1626488519249"
+    },
+    {
+      "type": "frame",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "تم حجز الطلب بنجاح."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_1_1626488937021"
+      },
+      "conditions": "#تنظيف",
+      "dialog_node": "node_3_1626490860587"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "عمري ألف سنة"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#أسئلة_شخصية && عمر",
+      "dialog_node": "node_4_1626488519249",
+      "previous_sibling": "node_3_1626488326740"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "أناا بخير"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#أسئلة_شخصية && كيف",
+      "dialog_node": "node_4_1626488656001",
+      "previous_sibling": "node_1_1626490637578"
+    },
+    {
+      "type": "frame",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "تم تسجيل طلبك بنجاح."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_1_1626488937021"
+      },
+      "conditions": "#ملابس",
+      "dialog_node": "node_4_1626491673224",
+      "previous_sibling": "node_8_1626491187379"
+    },
+    {
+      "type": "frame",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "تم"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": ""
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_1_1626488937021"
+      },
+      "conditions": "#صرف",
+      "dialog_node": "node_8_1626491187379",
+      "previous_sibling": "node_3_1626490860587"
+    },
+    {
+      "type": "slot",
+      "parent": "node_3_1626490860587",
+      "variable": "$time",
+      "dialog_node": "slot_1_1626490942549",
+      "previous_sibling": "slot_3_1626490888369"
+    },
+    {
+      "type": "slot",
+      "parent": "node_8_1626491187379",
+      "variable": "$type",
+      "dialog_node": "slot_1_1626492656182",
+      "previous_sibling": "slot_8_1626491240645"
+    },
+    {
+      "type": "slot",
+      "parent": "node_1_1626488937021",
+      "dialog_node": "slot_3_1626490320711"
+    },
+    {
+      "type": "slot",
+      "parent": "node_3_1626490860587",
+      "variable": "$date",
+      "dialog_node": "slot_3_1626490888369",
+      "previous_sibling": "handler_1_1626491169669"
+    },
+    {
+      "type": "slot",
+      "parent": "node_3_1626488326740",
+      "dialog_node": "slot_7_1626490294709"
+    },
+    {
+      "type": "slot",
+      "parent": "node_8_1626491187379",
+      "variable": "$number",
+      "dialog_node": "slot_8_1626491240645",
+      "previous_sibling": "handler_2_1626491617137"
+    },
+    {
+      "type": "slot",
+      "parent": "node_4_1626491673224",
+      "variable": "$number",
+      "dialog_node": "slot_8_1626491815956",
+      "previous_sibling": "handler_3_1626491712165"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "intent_classification": {
+      "training_backend_version": "v2"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "My first skill",
+  "language": "en",
+  "description": ""
+}
